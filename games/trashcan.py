@@ -6,6 +6,7 @@ WIDTH, HEIGHT = 500, 500
 TRASH_SIZE = 30
 CAN_SIZE = 80
 LEVELS = 6
+MAX_MISSED = 5
 
 # Initialize Window
 root = tk.Tk()
@@ -22,26 +23,34 @@ level = 1
 speed = 5
 trash_count = 1
 score = 0
+missed = 0
+score_text = canvas.create_text(50, 20, text=f"Score: {score}", font=("Arial", 16), fill="black")
+missed_text = canvas.create_text(450, 20, text=f"Missed: {missed}", font=("Arial", 16), fill="red")
 
-# Spawn Trash
 def spawn_trash():
-    for _ in range(trash_count):
-        x_pos = random.randint(0, WIDTH - TRASH_SIZE)
-        trash = canvas.create_oval(x_pos, 0, x_pos + TRASH_SIZE, TRASH_SIZE, fill="brown")
-        trashes.append(trash)
-    root.after(1500, spawn_trash)  # Spawn new trash every 1.5 seconds
+    if missed < MAX_MISSED:
+        for _ in range(trash_count):
+            x_pos = random.randint(0, WIDTH - TRASH_SIZE)
+            trash = canvas.create_oval(x_pos, 0, x_pos + TRASH_SIZE, TRASH_SIZE, fill="brown")
+            trashes.append(trash)
+        root.after(1500, spawn_trash)  # Spawn new trash every 1.5 seconds
 
 # Move Trash
 def move_trash():
-    global score, level, speed, trash_count
+    global score, level, speed, trash_count, missed
     for trash in trashes[:]:
         canvas.move(trash, 0, speed)
         if canvas.coords(trash)[1] > HEIGHT:
             canvas.delete(trash)
             trashes.remove(trash)
+            missed += 1
+            canvas.itemconfig(missed_text, text=f"Missed: {missed}")
+            if missed >= MAX_MISSED:
+                game_over()
         elif canvas.coords(trash)[1] + TRASH_SIZE >= canvas.coords(can)[1]:
             if canvas.coords(can)[0] <= canvas.coords(trash)[0] <= canvas.coords(can)[2]:
                 score += 1
+                canvas.itemconfig(score_text, text=f"Score: {score}")
                 canvas.delete(trash)
                 trashes.remove(trash)
     
@@ -51,6 +60,10 @@ def move_trash():
         speed += 1
         trash_count += 1
     root.after(50, move_trash)
+
+# Game Over
+def game_over():
+    canvas.create_text(WIDTH//2, HEIGHT//2, text="Game Over", font=("Arial", 24), fill="red")
 
 # Move Trash Can
 def move_left(event):
