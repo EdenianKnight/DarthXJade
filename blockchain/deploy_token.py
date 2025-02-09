@@ -1,7 +1,7 @@
 from solana.rpc.api import Client
 from solders.transaction import Transaction
 from solders.keypair import Keypair
-from spl.token.client import Token
+from spl.token.core import create_mint  # Updated import
 from spl.token.constants import TOKEN_PROGRAM_ID
 
 # Connect to Solana Devnet
@@ -14,14 +14,17 @@ authority = Keypair()
 # Create DeolaX Token
 def create_deolax_token():
     print("Creating DeolaX token...")
-    deolax_token = Token.create_mint(
+
+    # Create the token mint
+    deolax_token = create_mint(
         solana_client,
-        authority,
-        authority.public_key,
+        authority,  # Payer
+        authority.pubkey(),  # Mint authority
+        authority.pubkey(),  # Freeze authority
         6,  # Decimals
-        TOKEN_PROGRAM_ID
     )
-    print(f"DeolaX Token Address: {deolax_token.pubkey}")
+
+    print(f"DeolaX Token Address: {deolax_token}")
     return deolax_token
 
 if __name__ == "__main__":

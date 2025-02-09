@@ -25,4 +25,4 @@ def mint_deolax(deolax_token_address, recipient_address, amount):
 
 if __name__ == "__main__":
     # Example usage (Replace with actual token and recipient addresses)
-    mint_deolax("DEOLAX_TOKEN_ADDRESS", "RECIPIENT_WALLET_ADDRESS", 1000)
+    mint_deolax("BJqc3irWUJzELUHyVEtNqkVwJ71aysjnCQpT5xMoHcGR", "5YRTtA6uR1vxQ67jQDTNzDUgkRSpwvvvshUBveDdKeH8", 1000)
