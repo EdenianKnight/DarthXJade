@@ -1,0 +1,58 @@
+﻿Hackathon Project Presentation - DarthXJade (TrashCan & Battlement)
+Slide 1: Title Slide
+* Title: "TrashCan & Battlement – Gaming Meets Blockchain Rewards"
+* Subtitle: "Cross-Chain Interoperability in Gaming"
+* Our Name | OvieOla
+________________
+
+
+Slide 2: The Problem
+Gaming Rewards Are Limited:
+* Most in-game rewards stay within the game and have no real-world value.
+* Players invest time, but their rewards can’t be used elsewhere.
+* Blockchain can fix this by making in-game rewards valuable & transferable.
+________________
+
+
+Slide 3: Our Solution
+* We built two simple games: TrashCan & Battlement.
+* Players earn points by playing.
+* Points can be converted into DeolaX tokens on Solana.
+* Tokens can be used across different blockchains (Flow compatibility).
+________________
+
+
+Slide 4: How It Works
+1. Games (Python Tkinter) → Players earn points.
+2. Points → Converted into DeolaX Tokens (Solana-based).
+3. Cross-Chain Integration → Use tokens on Flow Blockchain.
+4. Players Can Trade or Use Tokens in Other Games.
+________________
+
+
+Slide 5: Demo (Live Walkthrough)
+🎮 Live Gameplay Demonstration
+* Show TrashCan or Battlement running.
+* Explain how the score system works.
+* Show how points translate into token rewards.
+________________
+
+
+Slide 6: Why It Matters
+✅ Brings real-world value to gaming. ✅ Encourages cross-chain asset usability. ✅ Shows a practical way to integrate gaming & blockchain. ✅ Scalable to more games, platforms & ecosystems.
+________________
+
+
+Slide 7: Future Potential
+🚀 What’s Next?
+* Automate token conversion into DeolaX.
+* Expand to more games & blockchain platforms.
+* Create a marketplace for players to trade tokens.
+________________
+
+
+Slide 8: Conclusion & Final Thoughts
+* "Gaming should be fun, rewarding, and valuable—this is just the beginning."
+* Thank you! 🙌
+* Questions? 🎤
+________________
